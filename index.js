@@ -2,34 +2,21 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT;
+const cors = require("cors");
+
+app.use(cors());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("main route works well");
 });
 
-app.get("/transactions", (req, res) => {
-  res.send("transactions route works well");
-});
-
-app.post("/withdrawals", (req, res) => {
-  res.send("withdrawals route works well");
-});
-
-app.post("/deposits", (req, res) => {
-  res.send("deposits route works well");
-});
-
-app.post("/transfers", (req, res) => {
-  res.send("transfers route works well");
-});
-
-app.post("/activations", (req, res) => {
-  res.send("activations route works well");
-});
-
-app.put("/pinchanges", (req, res) => {
-  res.send("balances route works well");
-});
+app.use("/transactions", require("./routes/transactionRoutes"));
+app.use("/withdrawals", require("./routes/withdrawalRoutes"));
+app.use("/deposits", require("./routes/depositRoutes"));
+app.use("/transfers", require("./routes/transferRoutes"));
+app.use("/activations", require("./routes/activationRoutes"));
+app.use("/pinchanges", require("./routes/pinChangeRoutes"));
 
 app.listen(PORT, () => {
   console.log("Server started on port 3000");
