@@ -15,12 +15,15 @@ module.exports = (sequelize) => {
       },
       surname: {
         type: Datatypes.STRING(100),
+        allowNull: false,
       },
       ccNumber: {
         type: Datatypes.STRING(16),
+        allowNull: false,
       },
       pinNumber: {
         type: Datatypes.STRING(4),
+        allowNull: false,
       },
     },
     { timestamps: false }
