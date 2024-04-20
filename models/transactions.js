@@ -1,20 +1,20 @@
-const { Datatypes, Sequelize } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 
 module.exports = (sequelize) => {
   return sequelize.define(
     "Transactions",
     {
       id: {
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
       amount: {
-        type: Datatypes.FLOAT,
+        type: DataTypes.FLOAT,
         allowNull: false,
       },
       type: {
-        type: Datatypes.ENUM,
+        type: DataTypes.ENUM,
         values: ["deposit", "withdrawal", "transferIN", "transferOUT", "bankFee"],
         allowNull: false,
       },

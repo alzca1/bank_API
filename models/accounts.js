@@ -1,14 +1,14 @@
-const { Datatypes, Sequelize } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 
 module.exports = (sequelize) => {
   return sequelize.define("Accounts", {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
     balance: {
-      type: Datatypes.FLOAT,
+      type: DataTypes.FLOAT,
       defaultValue: 0,
       allowNull: false,
     },
