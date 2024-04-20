@@ -1,13 +1,17 @@
-const { truncate } = require("fs/promises");
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(process.env.BBDD_URL, {
-  host: "localhost",
-  dialect: "postgres",
-  define: {
-    timestamps: false,
-  },
-});
+const sequelize = new Sequelize(
+  process.env.BBDD_NAME,
+  process.env.BBDD_USER,
+  process.env.BBDD_PASSWORD,
+  {
+    host: "localhost",
+    dialect: "postgres",
+    define: {
+      timestamps: false,
+    },
+  }
+);
 
 const db = {
   Sequelize: Sequelize,
