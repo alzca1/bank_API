@@ -1,0 +1,12 @@
+[
+  { "street": "Calle Gran Vía", "number": "123", "postCode": "28013", "bankId": 7 },
+  { "street": "Calle Mayor", "number": "456", "postCode": "28004", "bankId": 12 },
+  { "street": "Avenida Diagonal", "number": "789", "postCode": "08001", "bankId": 3 },
+  { "street": "Paseo de Gracia", "number": "1011", "postCode": "08008", "bankId": 5 },
+  { "street": "Carrer de Sants", "number": "1213", "postCode": "08001", "bankId": 14 },
+  { "street": "Plaza de España", "number": "1415", "postCode": "28008", "bankId": 9 },
+  { "street": "Calle Rambla", "number": "1617", "postCode": "08002", "bankId": 1 },
+  { "street": "Calle del Sol", "number": "1819", "postCode": "28002", "bankId": 11 },
+  { "street": "Avenida de la Libertad", "number": "2021", "postCode": "08003", "bankId": 8 },
+  { "street": "Carrer del Mar", "number": "2223", "postCode": "08004", "bankId": 6 }
+]
