@@ -12,14 +12,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(100),
         allowNull: false,
       },
-      ccNumber: {
-        type: DataTypes.STRING(16),
-        allowNull: false,
-      },
-      pinNumber: {
-        type: DataTypes.STRING(4),
-        allowNull: false,
-      },
     },
     { timestamps: false }
   );
