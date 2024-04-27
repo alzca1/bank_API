@@ -1,0 +1,12 @@
+[
+  { "accountNumber": "1234567890123456", "balance": 1000.0 },
+  { "accountNumber": "2345678901234567", "balance": 2500.0 },
+  { "accountNumber": "3456789012345678", "balance": 500.0 },
+  { "accountNumber": "4567890123456789", "balance": 750.0 },
+  { "accountNumber": "5678901234567890", "balance": 2000.0 },
+  { "accountNumber": "6789012345678901", "balance": 1500.0 },
+  { "accountNumber": "7890123456789012", "balance": 3000.0 },
+  { "accountNumber": "8901234567890123", "balance": 10000.0 },
+  { "accountNumber": "9012345678901234", "balance": 400.0 },
+  { "accountNumber": "0123456789012345", "balance": 800.0 }
+]
