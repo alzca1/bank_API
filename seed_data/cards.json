@@ -1,0 +1,92 @@
+[
+  {
+    "cardNumber": "1234567812345678",
+    "cvv": "123",
+    "expirationDate": "12/25",
+    "pinNumber": "1234",
+    "type": "credit",
+    "creditBalance": 1000.0,
+    "creditLimit": 5000.0,
+    "accountId": 1
+  },
+  {
+    "cardNumber": "2345678923456789",
+    "cvv": "234",
+    "expirationDate": "01/26",
+    "pinNumber": "2345",
+    "type": "debit",
+    "accountId": 2
+  },
+  {
+    "cardNumber": "3456789034567890",
+    "cvv": "345",
+    "expirationDate": "02/27",
+    "pinNumber": "3456",
+    "type": "credit",
+    "creditBalance": 500.0,
+    "creditLimit": 2000.0,
+    "accountId": 3
+  },
+  {
+    "cardNumber": "4567890145678901",
+    "cvv": "456",
+    "expirationDate": "03/28",
+    "pinNumber": "4567",
+    "type": "debit",
+    "accountId": 4
+  },
+  {
+    "cardNumber": "5678901256789012",
+    "cvv": "567",
+    "expirationDate": "04/29",
+    "pinNumber": "5678",
+    "type": "credit",
+    "creditBalance": 2000.0,
+    "creditLimit": 8000.0,
+    "accountId": 5
+  },
+  {
+    "cardNumber": "6789012367890123",
+    "cvv": "678",
+    "expirationDate": "05/30",
+    "pinNumber": "6789",
+    "type": "debit",
+    "accountId": 6
+  },
+  {
+    "cardNumber": "7890123478901234",
+    "cvv": "789",
+    "expirationDate": "06/31",
+    "pinNumber": "7890",
+    "type": "credit",
+    "creditBalance": 3000.0,
+    "creditLimit": 10000.0,
+    "accountId": 7
+  },
+  {
+    "cardNumber": "8901234589012345",
+    "cvv": "890",
+    "expirationDate": "07/32",
+    "pinNumber": "8901",
+    "type": "debit",
+    "accountId": 8
+  },
+  {
+    "cardNumber": "9012345690123456",
+    "cvv": "901",
+    "expirationDate": "08/33",
+    "pinNumber": "9012",
+    "type": "credit",
+    "creditBalance": 1500.0,
+    "creditLimit": 5000.0,
+    "accountId": 9
+  },
+  {
+    "cardNumber": "0123456701234567",
+    "cvv": "012",
+    "expirationDate": "09/34",
+    "pinNumber": "0123",
+    "type": "debit",
+    "accountId": 10
+  }
+]
