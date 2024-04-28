@@ -1,9 +1,10 @@
+require("dotenv").config();
 const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize(
-  process.env.BBDD_NAME,
-  process.env.BBDD_USER,
-  process.env.BBDD_PASSWORD,
+  process.env.BBDD_NAME || "bankDB",
+  process.env.BBDD_USER || "postgres",
+  process.env.BBDD_PASSWORD || "",
   {
     host: "localhost",
     dialect: "postgres",
@@ -34,26 +35,29 @@ db.cards = require("../models/cards")(sequelize, Sequelize);
 db.transactions = require("../models/transactions")(sequelize, Sequelize);
 db.banks = require("../models/banks")(sequelize, Sequelize);
 db.cashpoints = require("../models/cashpoints")(sequelize, Sequelize);
+db.userAccounts = require("../models/userAccounts")(sequelize, Sequelize);
 
-db.users.hasMany(db.accounts, {
-  as: "account",
-  foreignKey: "userId",
+// db.users.hasMany(db.accounts, {
+//   as: "account",
+//   foreignKey: "userId",
+// });
+
+// db.accounts.hasMany(db.cards, {
+//   as: "card",
+//   foreignKey: "accountId",
+// });
+
+db.users.belongsToMany(db.accounts, {
+  through: "UserAccounts",
+});
+db.accounts.belongsToMany(db.users, {
+  through: "UserAccounts",
 });
 
-db.accounts.hasMany(db.cards, {
-  as: "card",
-  foreignKey: "accountId",
-});
-
-db.accounts.hasMany(db.transactions, {
-  as: "transaction",
-  foreignKey: "accountId",
-});
-
-db.accounts.hasMany(db.users, {
-  as: "user",
-  foreignKey: "accountId",
-});
+// db.accounts.hasMany(db.users, {
+//   as: "user",
+//   foreignKey: "accountId",
+// });
 
 db.cards.hasMany(db.transactions, {
   as: "transaction",
@@ -83,6 +87,15 @@ db.banks.hasMany(db.cashpoints, {
 db.cashpoints.belongsTo(db.banks, {
   as: "bank",
   foreignKey: "bankId",
+});
+
+db.accounts.hasMany(db.transactions, {
+  as: "transaction",
+  foreignKey: "accountId",
+});
+
+db.accounts.belongsToMany(db.users, {
+  through: "UserAccounts",
 });
 
 module.exports = { db };

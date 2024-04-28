@@ -4,18 +4,17 @@ const banks = require("./banks.json");
 const users = require("./users.json");
 const userAccounts = require("./userAccounts.json");
 const accounts = require("./accounts.json");
+const cards = require("./cards.json");
 
 const seed = async () => {
   try {
-    await db.sequelize.sync({ force: true });
+    await db.sequelize.sync({ force: false });
 
     banks.map(async (bank) => {
-      console.log("Bank: ", bank.name);
       await db.banks.findOrCreate({ where: { name: bank.name } });
     });
 
     cashpoints.map(async (cashpoint) => {
-      console.log("Cashpoint: ", cashpoint.street);
       await db.cashpoints.findOrCreate({
         where: {
           street: cashpoint.street,
@@ -27,7 +26,6 @@ const seed = async () => {
     });
 
     users.map(async (user) => {
-      console.log("User: ", user.name);
       await db.users.findOrCreate({
         where: {
           name: user.name,
@@ -46,11 +44,25 @@ const seed = async () => {
     });
 
     userAccounts.map(async (userAccount) => {
-      console.log("UserAccount: ", userAccount.accountNumber);
       await db.userAccounts.findOrCreate({
         where: {
           UserId: userAccount.UserId,
           AccountId: userAccount.AccountId,
+        },
+      });
+    });
+
+    cards.map(async (card) => {
+      await db.cards.findOrCreate({
+        where: {
+          cardNumber: card.cardNumber,
+          cvv: card.cvv,
+          expirationDate: card.expirationDate,
+          pinNumber: card.pinNumber,
+          type: card.type,
+          accountId: card.accountId,
+          ...(card.creditBalance && { creditBalance: card.creditBalance }),
+          ...(card.creditLimit && { creditLimit: card.creditLimit }),
         },
       });
     });
