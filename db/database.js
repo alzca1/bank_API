@@ -37,65 +37,61 @@ db.banks = require("../models/banks")(sequelize, Sequelize);
 db.cashpoints = require("../models/cashpoints")(sequelize, Sequelize);
 db.userAccounts = require("../models/userAccounts")(sequelize, Sequelize);
 
-// db.users.hasMany(db.accounts, {
-//   as: "account",
-//   foreignKey: "userId",
+db.banks.hasMany(db.cashpoints);
+db.cashpoints.belongsTo(db.banks);
+
+db.banks.hasMany(db.accounts);
+db.accounts.belongsTo(db.banks);
+
+// db.users.hasMany(db.accounts);
+db.accounts.hasMany(db.cards);
+db.cards.belongsTo(db.accounts);
+
+db.users.belongsToMany(db.accounts, { through: "UserAccounts" });
+db.accounts.belongsToMany(db.users, { through: "UserAccounts" });
+
+// db.users.belongsToMany(db.accounts, {
+//   through: "UserAccounts",
 // });
 
-// db.accounts.hasMany(db.cards, {
-//   as: "card",
-//   foreignKey: "accountId",
+// db.accounts.belongsToMany(db.users, {
+//   through: "UserAccounts",
 // });
-
-db.users.belongsToMany(db.accounts, {
-  through: "UserAccounts",
-});
-db.accounts.belongsToMany(db.users, {
-  through: "UserAccounts",
-});
 
 // db.accounts.hasMany(db.users, {
 //   as: "user",
 //   foreignKey: "accountId",
 // });
 
-db.cards.hasMany(db.transactions, {
-  as: "transaction",
-  foreignKey: "cardId",
-});
+// db.cards.hasMany(db.transactions, {
+//   as: "transaction",
+//   foreignKey: "cardId",
+// });
 
-db.transactions.belongsTo(db.cards, {
-  as: "card",
-  foreignKey: "cardId",
-});
+// db.transactions.belongsTo(db.cards, {
+//   as: "card",
+//   foreignKey: "cardId",
+// });
 
-db.transactions.belongsTo(db.accounts, {
-  as: "account",
-  foreignKey: "accountId",
-});
+// db.transactions.belongsTo(db.accounts, {
+//   as: "account",
+//   foreignKey: "accountId",
+// });
 
-db.cards.belongsTo(db.accounts, {
-  as: "account",
-  foreignKey: "accountId",
-});
+// db.cards.belongsTo(db.accounts, {
+//   as: "account",
+//   foreignKey: "accountId",
+// });
 
-db.banks.hasMany(db.cashpoints, {
-  as: "cashpoint",
-  foreignKey: "bankId",
-});
+// db.cashpoints.belongsTo(db.banks);
 
-db.cashpoints.belongsTo(db.banks, {
-  as: "bank",
-  foreignKey: "bankId",
-});
+// db.accounts.hasMany(db.transactions, {
+//   as: "transaction",
+//   foreignKey: "accountId",
+// });
 
-db.accounts.hasMany(db.transactions, {
-  as: "transaction",
-  foreignKey: "accountId",
-});
-
-db.accounts.belongsToMany(db.users, {
-  through: "UserAccounts",
-});
+// db.accounts.belongsToMany(db.users, {
+//   through: "UserAccounts",
+// });
 
 module.exports = { db };
